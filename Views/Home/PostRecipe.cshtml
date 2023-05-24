@@ -1,0 +1,227 @@
+﻿@model WebApplication.Models.Post
+
+@{
+    ViewBag.Title = "PostRecipe";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostRecipe</title>
+    <link rel="stylesheet" href="account.css">
+    <script src="https://kit.fontawesome.com/332a215f17.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan+2:400,700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <header class="account-header">
+
+        <!-- Nav bar-->
+        <nav id="top">
+
+            <img src="~/Images/logo_sgO_icon.ico" width="40" height="40" />
+            <li><a href="/Home">Home</a></li>
+            <li><a href="Recipes">Recipes</a></li>
+            <li><a href="About">About</a></li>
+            <li><a href="Logout">Logout</a></li>
+        </nav>
+
+
+
+    </header>
+
+    @using (Html.BeginForm("PostRecipe", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+     {
+        @Html.AntiForgeryToken()
+        <div class="white-box">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="profile-images-card">
+                <div class="profile-images">
+                    <img src="~/Images/add.png" id="upload-img" />
+                </div>
+                <div class="custom-file">
+                    <input type="file" name="ImageFile" id="fileupload" accept="image/jpeg, image/png" />
+                    @Html.ValidationMessageFor(model => model.PostPhoto, "", new { @class = "text-danger" })
+                </div>
+                <div class="text-danger">
+                    <label>@ViewBag.Notification</label>
+                </div>
+
+            </div>
+            <div class="card-content">
+                <div class="title">
+                    @Html.TextBoxFor(model => model.PostTitle, "", new { Class = "TitleText", @placeholder = "Add your title" })
+                    @Html.ValidationMessageFor(model => model.PostTitle, "", new { @class = "badge badge-danger" })
+
+                </div>
+                <div class="author">
+                    @Html.TextBoxFor(model => model.PostAuthor, "", new { Class = "AuthorText", @placeholder = "Add author name" })
+                    @Html.ValidationMessageFor(model => model.PostAuthor, "", new { @class = "badge badge-danger" })
+
+                </div>
+                <div class="content">
+                    @Html.LabelFor(model => model.PostContent, new { Class = "ContentLabel" })
+                    @Html.TextAreaFor(model => model.PostContent, new { @class = "ckeditor" })
+                    @Html.ValidationMessageFor(model => model.PostContent, "", new { @class = "badge badge-danger" })
+
+                </div>
+            </div>
+            <div class="submit">
+                <input type="submit" value="Create recipe" class="btn btn-default" />
+                <a href="MyAccount" class="btn btn-default">Go back</a>
+
+            </div>
+           
+        </div>
+     }
+
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            $("#fileupload").change(function (event) {
+                var x = URL.createObjectURL(event.target.files[0]);
+                $("#upload-img").attr("src", x);
+                console.log(event)
+            });
+        });
+
+    </script>
+
+    <style>
+        
+        body {
+            background-image: url('../../Images/banana_minion.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: block;
+            justify-content: center;
+            align-items: center;
+            background-attachment: fixed;
+        }
+
+        .white-box {
+            background-color: white;
+            color: black;
+            width: 800px;
+            height: 700px;
+            margin-top: 100px;
+            margin-bottom: auto;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+  
+        input[type= file] {
+            width: 230px;
+            margin-top: 60px;
+        }
+        input[type= submit] {
+            background-color: #f5af09;
+            position: relative;
+            top: 620px;
+            left: 350px;
+            color: white;
+        }
+        input[type= submit]:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+        .btn {
+            background-color: red;
+            color:white;
+            position:relative;
+            top:620px;
+            left:100px;
+
+        }
+        .btn:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            color:black;
+        }
+
+        
+        .profile-images-card {
+            margin-left: 30px;
+            margin-top: 40px;
+            position: fixed;
+            display: table;
+            background: #fff;
+            padding: 30px 50px;
+            box-shadow: 0px 0px 5px #ddd;
+            border-radius: 20%;
+            height: 400px;
+            width: 200px;
+        }
+        .profile-images {
+            width: 200px;
+            height: 200px;
+            border-radius: 15px;
+            background: #fff;
+            overflow: hidden;
+            margin: auto;
+        }
+        .profile-images img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            margin-left: 400px;
+            margin-top: 40px;
+            position: fixed;
+            display: table;
+            background-color: white;
+            height: 600px;
+            width: 380px;
+        }
+
+        .TitleText{
+            height:100%;
+            width:100%;
+            border:none;
+            border-bottom: 2px solid silver;
+            font-size:40px;
+            font-weight:100;
+            outline:none;
+        }
+        .TitleText:focus{
+            border-bottom-color:#f5af09;
+        }
+
+        .AuthorText {
+            height: 100%;
+            width: 100%;
+            border: none;
+            border-bottom: 2px solid silver;
+            font-size: 30px;
+            font-weight: 100;
+            outline: none;
+            margin-top:50px;
+        }
+        .AuthorText:focus {
+            border-bottom-color: #f5af09;
+        }
+
+        .content {
+            height: 200px;
+            width: 100%;
+            margin-top: 50px;
+ 
+        }
+        .ContentLabel {
+            font-size: 20px;
+            font-weight: 100;
+        }
+    </style>
+
+</body>
+</html >
+
+

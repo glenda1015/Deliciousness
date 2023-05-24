@@ -1,0 +1,134 @@
+﻿@model WebApplication.Models.User
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="main.css">
+	<script src="https://kit.fontawesome.com/332a215f17.js" crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css?family=Baloo+Chettan+2:400,700&display=swap" rel="stylesheet">
+
+</head>
+
+<p style="text-align:center;">
+    <style>
+        body {
+            background-image: url('../../Images/Welcome bg.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: block;
+            justify-content: center;
+            align-items: center;
+            background-attachment: fixed;
+        }
+
+    </style>
+
+    <div class="row justify-content-end">
+        <div class="col-md-2">
+            <div class="card" style="width:300px; height:600px">
+                <img src="~/Images/MainLogo1.png" alt="Avatar" style="width:100%"/>
+                <div class="container">
+                    @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-group" style="margin-top:20px">
+                            @Html.LabelFor(m => m.UserName)
+                            @Html.TextBoxFor(m => m.UserName, "", new { @class = "form-control", @placeholder = "Username", style = "width:250px" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Password)
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password", style = "width:250px" })
+                        </div>
+
+                        <div class="form-group" style=" margin-left: 24%; margin-top:40px" >
+                            <input type="submit" name="submit" class="btn btn-primary" style="background-color:red" value="Login" />
+                        </div>
+
+                        <div class="form-group" style=" margin-left: 24%">
+                            <a href="Register" class="btn btn-primary" style="background-color:#FFC72C" >Create Account</a>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <div class="text-danger">
+                                    <label>@ViewBag.Notification</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <style>
+
+                            @@media screen and (max-width: 700px){
+                                .container {
+                                    width: 100%;
+                                }
+                            }
+
+                            .card {
+                                font-family: 'Apple Chancery';
+                                font-weight: 600;
+                                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                                transition: 0.3s;
+                                border-radius: 15px;
+                                float: right;
+                                margin: 50px 20px;
+                                margin-top: 200px;
+                                width: max-content;
+                            }
+
+                            .card:hover {
+                                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+                            }
+
+
+
+                            .btn {
+                                
+                                font-weight: 600;
+                                color: white;
+                                border: none;
+                                width: 150px;
+                                border-radius: 25px;
+                            }
+
+                            .btn:hover {
+                                background: #fff;
+                                color: black;
+                                border: none;
+                                text-decoration: none;
+                                font-size: 19px;
+                                transition: font-size 1s ease, letter-spacing 1s ease-out, text-shadow 1s cubic-bezier(0.6,0,0.8,0.5);
+                            }
+
+                            label {
+                                text-align: match-parent;
+                                font-size: 20px;
+                                color: black;
+                            }
+
+
+                            .card-body {
+                                font-size: 22px;
+                                font-weight: 600;
+                                color: white;
+                                text-shadow: 2px 2px 5px black;
+                                background-repeat: no-repeat;
+                                background-size: cover;
+                            }
+                        </style>
+                    }
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</p>
+</html>

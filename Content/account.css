@@ -1,0 +1,149 @@
+﻿/* Secondary Page Formatting */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+.title-text {
+	font-size: 40px;
+	text-align: center;
+}
+
+body {
+	font-family: 'Baloo Chettan 2', cursive;
+	line-height: 1.5;
+	
+}
+
+
+/* Navigation Bar Formatting */
+
+nav#top li a {
+	color: white;
+	display: block;
+	font-size: 23px;
+	text-align: center;
+	padding-bottom: 10%;
+	margin: 20px;
+	text-decoration: none;
+}
+
+nav#top {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: row nowrap;
+	flex-flow: row nowrap;
+	background: linear-gradient(rgba(0, 0, 0, 0.6),rgb(0,0,0,0.6));
+	height: 55px;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+}
+
+	nav#top li {
+		font-weight: 400;
+		text-decoration: none;
+		max-width: 300px;
+		flex: 1 1 auto;
+	}
+
+		nav#top li a:hover, nav#top ul li a:active {
+			color: red;
+			text-shadow: 0px 0px 2px black, 0px 0px 15px white;
+		}
+
+	nav#top a {
+		color: rgb(255,255,255);
+		font-size: 20px;
+		letter-spacing: 0em;
+		text-shadow: rgba(0,0,0,1) 1px -1px 1px;
+		transition: color 1s ease-in 0.5s, font-size 1s ease, letter-spacing 1s ease-out, text-shadow 1s cubic-bezier(0.6,0,0.8,0.5);
+	}
+
+		nav#top a:hover {
+			color: rgb(255, 183, 25);
+			font-size: 28px;
+			letter-spacing: 0.04em;
+			text-shadow: rgba(0,0,0,0.5) 15px -3px 8px;
+		}
+
+
+body {
+	
+	background-image: url('../Images/background.jpeg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+.row {
+	display: -webkit-flex;
+	display: flex;
+}
+
+/* Column Formatting */
+.column {
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	padding: 10px;
+	height: 300px;
+	border-radius: 60px;
+	margin: 20px;
+	background: linear-gradient(rgba(0, 0, 0, 0.6),rgb(0,0,0,0.6));
+	backdrop-filter: blur(6px);
+	color: white;
+	font-size: 30px;
+	text-decoration: none;
+	transition: color 0.5s ease-in 0.1s, font-size 1s ease, backdrop-filter 1s ease,letter-spacing 1s ease-out, text-shadow 1s cubic-bezier(0.6,0,0.8,0.5)
+}
+
+	.column:hover {
+		color: #ffcf00;
+		font-size: 33px;
+		backdrop-filter: blur(10px);
+	}
+
+
+/* Responsive Formatting  */
+@media (max-width: 600px) {
+	.row {
+		-webkit-flex-direction: column;
+		flex-direction: column;
+	}
+}
+
+.post-button {
+	display: inline-block;
+	text-decoration: none;
+	text-transform: uppercase;
+	padding: 13px 20px;
+	margin-bottom: 100px;
+	border-radius: 200px;
+	font-weight: bold;
+	background: red;
+	color: #fff;
+	cursor: pointer;
+	border: 2px solid red;
+	margin-top: 10px;
+	transition: color 0.5s ease-in 0.1s, font-size 1s ease, letter-spacing 1s ease-out, text-shadow 1s cubic-bezier(0.6,0,0.8,0.5)
+}
+
+	.post-button:hover {
+		background: #fff;
+		color: black;
+		border: none;
+		text-decoration: none;
+		box-shadow: 0px 0px 8px darkred;
+		font-size: 20px;
+	}
+
+article {
+	margin: 20px;
+}

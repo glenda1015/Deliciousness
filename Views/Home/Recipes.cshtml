@@ -1,0 +1,275 @@
+﻿@model IEnumerable<WebApplication.Models.Post>
+
+@{
+	ViewBag.Title = "Recipes";
+	Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<header class="account-header">
+
+	<nav id="top">
+
+		<img src="~/Images/logo_sgO_icon.ico" width="40" height="40" />
+		<li><a href="/Home">Home</a></li>
+		<li><a href="Recipes">Recipes</a></li>
+		<li><a href="About">About</a></li>
+		<li><a href="Logout">Logout</a></li>
+	</nav>
+</header>
+
+<link href="https://fonts.googleapis.com/css?family=Baloo+Chettan+2:400,700&display=swap" rel="stylesheet">
+
+
+
+<h2>Discover new recipes!</h2>
+
+<table class="table">
+
+
+	@foreach (var item in Model)
+
+	{
+		<!-- Create Cards to Store Recipe Information -->
+		<div class='recipe-card'>
+			<h1 class="recipe-card__heading">@Html.DisplayFor(modelItem => item.PostTitle)</h1>
+
+			<p class="account-info">
+				Posted By  :
+				@Html.DisplayFor(modelItem => item.PostAuthor)
+			</p>
+
+
+			<img src="@Html.DisplayFor(modelItem => item.PostPhoto)" class="food-img" />
+
+            <btn class="edit-buttons">
+                <a href="Fav/@item.PostID">Favorite &#9734;</a>
+			
+            </btn>
+
+			<div class="recipe-card__body">
+
+				<h2 class="recipe-card__subhead"></h2>
+
+                <ul class="recipe-card__nav">
+
+                    <h3 class="active">Description</h3>
+
+                </ul>
+				<ul class="recipe-card__ingredients">
+
+					@Html.Raw(item.PostContent)
+				</ul>
+
+			</div>
+
+		</div>
+
+
+	}
+
+</table>
+
+<style>
+
+    body {
+        background-image: url('../../Images/recipebg.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        font: 13px 'Open Sans', sans-serif;
+        color: white;
+        font-family: 'Baloo Chettan 2', cursive;
+    }
+
+
+	.create a {
+		font-weight: 200;
+		background-color: red;
+		padding: 5px;
+		border-radius: 50px;
+		color: white;
+		font-size: 20px;
+		text-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+		transition: color 0.5s ease-in 0.1s, font-size 1s ease, letter-spacing 1s ease-out, text-shadow 1s cubic-bezier(0.6,0,0.8,0.5)
+	}
+
+	.create a:hover {
+		background: #fff;
+		color: black;
+		border: none;
+		text-decoration: none;
+		box-shadow: 0px 0px 8px darkred;
+		font-size: 22px;
+	}
+
+	h2 {
+		color: rgba(255, 255, 255, 0.9);
+		font-size: 60px;
+		font-weight: 700;
+		text-align: center;
+		margin: 15px;
+		text-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+	}
+
+	.table img {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		object-fit: cover;
+		padding-top: 10px;
+		border-radius: 30px;
+	}
+
+	img.food-img {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: max-content;
+		height: 300px;
+		object-fit: cover;
+		padding-top: 10px;
+		border-radius: 30px;
+		transition: height 1s ease-in-out;
+	}
+
+	img.food-img:hover {
+		height: 500px;
+	}
+
+	.edit-buttons a {
+		position: center;
+		background-color: red;
+		border-radius: 20px;
+		padding: 7px;
+		margin: 20px;
+		font-size: 20px;
+		text-decoration: none;
+		color: white;
+		transition: color 0.5s ease-in 0.1s, font-size 1s ease, letter-spacing 1s ease-out, text-shadow 1s cubic-bezier(0.6,0,0.8,0.5)
+	}
+
+	.edit-buttons a:hover {
+		background: #fff;
+		color: black;
+		border: none;
+		text-decoration: none;
+		box-shadow: 0px 0px 8px darkred;
+		font-size: 21px;
+	}
+
+	.table {
+		font-size: 20px;
+		border-collapse: separate;
+		border-style: hidden !important;
+		color: white;
+		border-spacing: 40px 0;
+		box-shadow: 0px 0px 20px 1px red;
+		width: 90%;
+		margin: 50px auto;
+		border-radius: 50px;
+		background: linear-gradient(rgba(0, 0, 0, 0.4),rgb(0,0,0,0.4));
+		backdrop-filter: blur(5px);
+		transition: color 0.5s ease-in 0.1s, font-size 1s ease, backdrop-filter 2s, box-shadow 1s ease,letter-spacing 1s ease-out, text-shadow 1s cubic-bezier(0.6,0,0.8,0.5)
+	}
+
+	.recipe-card {
+		box-shadow: 0px 0px 20px 1px red;
+		width: 1200px;
+		margin: 50px auto;
+		border-radius: 50px;
+		background: linear-gradient(rgba(0, 0, 0, 0.4),rgb(0,0,0,0.4));
+		backdrop-filter: blur(5px);
+		transition: color 0.5s ease-in 0.1s, font-size 1s ease, backdrop-filter 2s, box-shadow 1s ease,letter-spacing 1s ease-out, text-shadow 1s cubic-bezier(0.6,0,0.8,0.5)
+	}
+
+	.recipe-card:hover {
+		box-shadow: 0px 0px 20px 1px white;
+		backdrop-filter: blur(9px);
+	}
+
+	.recipe-card__body {
+		padding: 20px;
+	}
+
+	.recipe-card__heading {
+		padding-left: 40px;
+		padding-top: 20px;
+		margin: 0 0 0;
+		color: white;
+		text-shadow: 0px 0px 8px darkred;
+		text-align: left;
+		text-transform: capitalize;
+	}
+
+	.account-info {
+		padding-left: 40px;
+		font-size: 15px;
+	}
+
+	.recipe-card__subhead {
+		font-size: 13px;
+		color: white;
+		margin-bottom: 30px;
+	}
+
+	.recipe-card__ingredients {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		margin-left: 10px;
+		column-count: 1;
+		font-size: 15px;
+		padding-left: 20px;
+	}
+
+
+	.recipe-card__nav {
+		margin: 0 0 20px;
+		padding: 0;
+		border-bottom: 1px solid red;
+	}
+
+
+
+
+	@@media (min-width:499px) {
+		.recipe-card {
+			width: 500px
+		}
+
+		img.food-img {
+			margin-bottom: 40px;
+			width: 50%;
+			height: 200px;
+		}
+
+		img.food-img:hover {
+			height: 300px;
+		}
+
+		.recipe-card__ingredients {
+			column-count: 2
+		}
+	}
+
+	@@media (min-width: 899px) {
+		.recipe-card {
+			width: 90%;
+		}
+
+		img.food-img {
+			width: 50%;
+			height: 250px;
+		}
+
+		img.food-img:hover {
+			height: 500px;
+		}
+
+
+		.recipe-card__ingredients {
+			column-count: 1
+		}
+	}
+</style>

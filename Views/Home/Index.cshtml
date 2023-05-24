@@ -1,0 +1,266 @@
+﻿
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+<!DOCTYPE html>
+
+<!-- Import General Sheet Data -->
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home</title>
+	<link rel="stylesheet" href="main.css">
+	<script src="https://kit.fontawesome.com/332a215f17.js" crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css?family=Baloo+Chettan+2:400,700&display=swap" rel="stylesheet">
+
+</head>
+
+<!-- Create Sections of the Webpage -->
+<body>
+
+	<header class="header">
+
+		<!-- Navigation Bar -->
+		<nav id="top">
+
+			<img src="~/Images/logo_sgO_icon.ico" width="40" height="40" />
+			<li><a href="/Home">Home</a></li>
+			<li><a href="Home/Recipes">Recipes</a></li>
+			<li><a href="Home/About">About</a></li>
+			<li><a href="Home/Logout">Logout</a></li>
+
+
+		</nav>
+
+		<div class="top">
+			<img src="~/Images/MainLogo1.png" width="600" height="270" />
+			<a href="/Home/MyAccount" class="top-button pulsate">My Account</a>
+		</div>
+
+	</header>
+
+	<!-- About Featured Items Sections -->
+	<section id="featured">
+		<div>
+			<h2 class="title-text">Featured Items</h2>
+		</div>
+
+		<div class="featured-center">
+			<article class="featured">
+				<div class="featured-icon"><i class="fas fa-cookie-bite"></i></div>
+				<div class="featured-text">
+					<h2 class="featured-subtitle">Snacks</h2>
+					<p class="featured-info">
+						Tasty small-sized treats that just beg you to take a bite!
+					</p>
+				</div>
+			</article>
+
+			<article class="featured">
+				<div class="featured-icon"><i class="fas fa-utensils"></i></div>
+				<div class="featured-text">
+					<h2 class="featured-subtitle">Main Courses</h2>
+					<p class="featured-info">
+						Dishes that are sure to satisfy your hunger
+						with hearty and substantive ingredients!
+					</p>
+				</div>
+			</article>
+
+			<article class="featured">
+				<div class="featured-icon"><i class="fas fa-ice-cream"></i></div>
+				<div class="featured-text">
+					<h2 class="featured-subtitle">Desserts</h2>
+					<p class="featured-info">
+						Sweet and decadent treats that will definitely be a joy to eat!
+					</p>
+				</div>
+			</article>
+
+		</div>
+	</section>
+
+	<!--- Recipe Link Section -->
+	<section class="browse" id="browse">
+		<article class="browse-image"></article>
+		<article class="browse-text">
+			<div class="browse-text-center">
+				<h1>Browse Recipes</h1>
+				<p>
+					Explore and search through a collection of community posted recipies.
+					Find your next favorite dish!
+				</p>
+				<a href="Home/Recipes">Begin</a>
+			</div>
+		</article>
+	</section>
+
+	<!-- Social Icons Section -->
+	<section id="social-icons">
+		<a href="#"><i class="fab fa-facebook facebook"></i></a>
+		<a href="#"><i class="fab fa-twitter twitter"></i></a>
+		<a href="#"><i class="fab fa-instagram instagram"></i></a>
+		<a href="#"><i class="fab fa-google-plus plus"></i></a>
+	</section>
+
+
+	<!-- Footer -->
+	<footer class="footer">
+
+		<div class="section-center">
+			<p class="text">
+				&copy; <span>Deliciousness</span>
+			</p>
+		</div>
+
+	</footer>
+
+	<!-- Additional Styles -->
+	<style>
+		body {
+			font-family: 'Baloo Chettan 2', cursive;
+		}
+
+		.footer {
+			background: white;
+			text-align: center;
+			text-transform: uppercase;
+			color: black;
+			font-size: 24px;
+			font-weight: bold;
+		}
+
+		.browse-image {
+			min-height: 80vh;
+			background: url('../../Images/index_background2.jpeg') center/cover fixed no-repeat;
+		}
+
+		.browse-image {
+			min-height: 80vh;
+			background: url('../Images/Healthy-Food-Doesnt-Have-To-Be-Expensive.jpg') center/cover fixed no-repeat;
+		}
+
+		.browse-text {
+			min-height: 80vh;
+			display: flex;
+			align-items: center;
+			background: red;
+			columns: #0000;
+			padding: 40px 0;
+		}
+
+		.browse-text-center {
+			width: 90%;
+			margin: 0 auto;
+		}
+
+		.browse-text h1 {
+			font-size: 40px;
+			text-transform: uppercase;
+			margin-bottom: 10px;
+		}
+
+		.browse-text p {
+			margin: 20px 0;
+			line-height: 2;
+		}
+
+		.browse-text a {
+			display: inline-block;
+			text-decoration: none;
+			text-transform: uppercase;
+			padding: 13px 20px;
+			border-radius: 200px;
+			font-weight: bold;
+			background: rgb(10, 10, 10);
+			color: white;
+			cursor: pointer;
+			border: 2px solid #000;
+			margin-top: 10px;
+		}
+
+			.browse-text a:hover {
+				color: red;
+				background: #fff;
+				border: none;
+			}
+
+		@@media screen and (min-width:776px) {
+			.browse {
+				display: flex;
+			}
+
+			.browse-text {
+				flex: 0 0 30%;
+			}
+
+			.browse-image {
+				flex: 0 0 70%;
+				clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%)
+			}
+
+			.browse {
+				background: red;
+			}
+		}
+
+			#featured {
+				padding: 40px;
+			}
+
+			.featured {
+				margin: 30px 0;
+				display: flex;
+			}
+
+			.featured-icon .fas {
+				font-size: 80px;
+				color: red;
+				margin-right: 20px;
+			}
+
+			.featured-subtitle {
+				text-transform: capitalize;
+				color: red;
+				font-size: 25px;
+			}
+
+			.featured-info {
+				margin-top: 10px;
+				line-height: 1.5;
+			}
+
+		.featured-icon:hover .fas,
+		.featured-subtitle:hover {
+			transition: transform 2s ease, color 2s ease;
+			transform: translate3d(1px, 12px, 13px);
+			color: #ffbf00;
+		}
+
+			@@media screen and (min-width: 600px) {
+				.featured-center {
+					display: flex;
+					flex-wrap: wrap;
+					justify-content: center;
+				}
+
+
+				.featured {
+					flex: 0 0 calc(50% - 16px);
+				}
+			}
+
+			@@media screen and (min-width:900px) {
+				.featured {
+					flex: 0 0 calc(33.3% - 16px);
+				}
+			}
+
+	</style>
+
+</body>
+</html>

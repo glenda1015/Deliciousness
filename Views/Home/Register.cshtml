@@ -1,0 +1,129 @@
+﻿@model WebApplication.Models.User
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<p style="text-align: center;">
+	<style>
+
+		img {
+			width: 100%;
+			object-fit: scale-down;
+		}
+
+        body {
+            background-image: url('../../Images/RegisterBackground.png');
+            background-size: cover;
+            display: block;
+            justify-content: center;
+            align-items: center;
+        }
+	</style>
+</p>
+
+<div class="row justify-content-center">
+    <div class="col-md-3">
+        @using (Html.BeginForm("Register", "Home", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="card" style="width:500px; height:800px">
+                <div class="container">
+                    <img src="~/Images/Logo.png" alt="" style="width:50%" />
+                    <div class="card-title">Sign up to find cool new recipes</div>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.FirstName)
+                        @Html.TextBoxFor(m => m.FirstName, "", new { @class = "form-control", @placeholder = "First Name" })
+                        @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "badge badge-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.LastName)
+                        @Html.TextBoxFor(m => m.LastName, "", new { @class = "form-control", @placeholder = "Last Name" })
+                        @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "badge badge-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.UserName)
+                        @Html.TextBoxFor(m => m.UserName, "", new { @class = "form-control", @placeholder = "Username" })
+                        @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "badge badge-danger" })
+                        @if (ViewBag.error != null)
+                        {
+                            <span class="badge badge-danger">@ViewBag.error</span>
+
+                        }
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password)
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "badge badge-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ConfirmPassword)
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Confirm Password" })
+                        @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "badge badge-danger" })
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="Submit" class="btn btn-danger" value="Register" style="background-color:#FFC72C"/>
+                        <a href="Login" class="btn btn-primary" style="float:right; background-color:red">Have an account? Log in</a>
+                    </div>
+
+                    <style>
+
+                        .card {
+                            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                            transition: 0.3s;
+                            border-radius: 15px;
+                            width: max-content;
+                        }
+
+                        .card:hover {
+                            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+                        }
+
+                        .btn {
+                            font-weight: 600;
+                            color: white;
+                            background-color: #FFC72C;
+                            border: none;
+                            border-radius: 25px;
+                        }
+
+                        .btn:hover {
+                            color: black;
+                            border: none;
+                            text-decoration: none;
+                            font-size: 18px;
+                            transition: font-size 1s ease, letter-spacing 1s ease-out, text-shadow 1s cubic-bezier(0.6,0,0.8,0.5);
+                        }
+
+                        .container {
+                            font-family: 'Apple Chancery';
+                            font-size: 20px;
+                            background-color: grey;
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                            font-weight: 600;
+                            text-align: center;
+                        }
+
+                        .card-body {
+                            font-family: 'Apple Chancery';
+                            font-size: 20px;
+                            font-weight: 600;
+                            color: black;
+                        }
+                    </style>
+
+                </div>
+            </div>
+            <footer>
+                <div class="section-center">
+                    <p class="text">
+                        <span></span>
+                    </p>
+                </div>
+            </footer>
+         }
+    </div>
+</div>

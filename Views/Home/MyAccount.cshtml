@@ -1,0 +1,121 @@
+﻿@{
+	ViewBag.Title = "MyAccount";
+	Layout = "~/Views/Shared/LayoutPage2.cshtml";
+}
+
+
+<!DOCTYPE html>
+
+<!-- Import General Sheet Data -->
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>MyAccount</title>
+	<link rel="stylesheet" href="account.css">
+	<script src="https://kit.fontawesome.com/332a215f17.js" crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css?family=Baloo+Chettan+2:400,700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<header class="account-header">
+
+		<!-- Navigation Bar -->
+		<nav id="top">
+
+			<img src="~/Images/logo_sgO_icon.ico" width="40" height="40" />
+			<li><a href="/Home">Home</a></li>
+			<li><a href="Recipes">Recipes</a></li>
+			<li><a href="About">About</a></li>
+			<li><a href="Logout">Logout</a></li>
+		</nav>
+
+
+
+		<!-- Create div and article sections of the Webpage -->
+		<div>
+			<h2 class="title-text">My Account</h2>
+		</div>
+
+		<article class="account" style="text-align:center;">
+			<div class="account-text">
+				<h3 class="account-subtitle">Name:</h3>
+				<p class="account-info">
+					@if (Session["FullName"] != null)
+					{
+						@Session["FullName"].ToString()
+					}
+
+				</p>
+
+				<h3 class="account-subtitle">Username: </h3>
+				<p class="account-info">
+					@if (Session["Username"] != null)
+					{
+						@Session["Username"].ToString()
+					}
+				</p>
+
+			</div>
+		</article>
+
+		<div class="button" style="text-align:center;">
+			<a href="PostRecipe" class="post-button">Post Recipe</a>
+		</div>
+
+	</header>
+
+	<div class="row">
+
+		<a href="AddToFav" class="column" style="text-align: center; ">
+			Favorites <br>
+
+			<img src="~/Images/favorites-icon-png-12297.png" width="200" />
+
+
+		</a>
+		<a href="YourPosts" class="column" style="text-align: center;">
+			Your Posts <br>
+			<img src="~/Images/posts.png" width="200" />
+		</a>
+
+	</div>
+
+	<!-- Additional Styles -->
+	<style>
+		h2 {
+			text-shadow: 1px 1px 2px white, 0 0 50px white, 0 0 5px white;
+			margin: 10px;
+			margin-bottom: 100px;
+		}
+
+		article {
+			-webkit-flex: 1;
+			-ms-flex: 1;
+			flex: 1;
+			padding: 30px;
+			position: relative;
+			width: 20%;
+			left: 48.5%;
+			transform: translate(-50%, -50%);
+			border-radius: 60px;
+			margin: 20px;
+			text-shadow: 0px 0px 8px white;
+			backdrop-filter: blur(6px);
+			background: linear-gradient(rgba(0, 0, 0, 0.2),rgb(0, 0, 0, 0.2));
+			border-radius: 50%;
+			text-shadow: 1px 1px 2px white, 0 0 50px white, 0 0 5px white;
+			font-size: large;
+		}
+
+		@@media screen and (max-width: 900px) {
+			article {
+				width: 50%;
+				border-radius: 50%;
+			}
+		}
+	</style>
+
+</body>

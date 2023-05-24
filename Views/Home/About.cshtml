@@ -1,0 +1,199 @@
+﻿
+@{
+	ViewBag.Title = "About";
+	Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+<!DOCTYPE html>
+<!-- Import General Sheet Data -->
+
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="main.css">
+	<script src="https://kit.fontawesome.com/332a215f17.js" crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css?family=Baloo+Chettan+2:400,700&display=swap" rel="stylesheet">
+
+</head>
+
+
+
+<body>
+
+
+	<!-- Create Sections of Webpage-->
+	<section class="area content content-1">
+		<header class="about-header">
+
+			<!-- Nav bar-->
+			<nav id="top">
+
+				<img src="~/Images/logo_sgO_icon.ico" width="40" height="40" />
+				<li><a href="/Home">Home</a></li>
+				<li><a href="Recipes">Recipes</a></li>
+				<li><a href="About">About</a></li>
+				<li><a href="Logout">Logout</a></li>
+			</nav>
+		</header>
+
+		<div class="container">
+			<h1>About</h1>
+		</div>
+
+	</section>
+	<section class="area words">
+		<div class="container">
+			<h2>Purpose</h2>
+			<p>
+				This website allows for quick and easy access to recipies. You can post, share, and browse
+				through a collection of delicous foods. Once you find something that catches your eye, favorite
+				that item to view it later. These favorited items can then be accessed through the account page.
+				We encourage you to share your tastiest meals and recipes. This is a community driven platform that will
+				continue to grow and bring more dishes overtime. With this, you are bound to find something new. Have fun
+				exploring!
+			</p>
+		</div>
+	</section>
+
+	<section class="area content content-2">
+		<div class="container">
+			<h1></h1>
+		</div>
+	</section>
+
+	<section class="area words">
+		<div class="container">
+			<h2>Our Goals</h2>
+			<p>
+				We strive to provide a platform that food lovers can partake in and enjoy. A myriad of foods derived from
+				multiple cultures and taste palettes can be viewed throughout this site. We hope to create a community of individuals
+				who simply enjoy exploring and trying out new and exciting foods. Our goal is for you to find your next
+				favorite dish soon!
+			</p>
+		</div>
+
+	</section>
+	<!---Social Icons-->
+	<section id="social-icons">
+		<a href="#"><i class="fab fa-facebook facebook"></i></a>
+		<a href="#"><i class="fab fa-twitter twitter"></i></a>
+		<a href="#"><i class="fab fa-instagram instagram"></i></a>
+		<a href="#"><i class="fab fa-google-plus plus"></i></a>
+	</section>
+
+	<!---footer------>
+	<footer class="footer">
+
+		<div class="section-center">
+			<p class="text">
+				&copy; <span>Deliciousness</span>
+			</p>
+		</div>
+
+	</footer>
+
+	<!-- Additional Styles-->
+	<style>
+		body {
+			font-family: 'Baloo Chettan 2', cursive;
+			line-height: 1.5;
+		}
+
+		.container {
+			max-width: 960px;
+			margin: 0 auto;
+		}
+
+
+		section.area h2 {
+			background-image: linear-gradient( #ff0000, #ff9c00);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			margin-bottom: 40px;
+			font-size: 30px;
+		}
+
+		section.area p {
+			margin-bottom: 40px;
+			font-size: 16px;
+			font-weight: 300;
+		}
+
+			section.area p:last-child {
+				margin-bottom: 0;
+			}
+
+		section.area.words {
+			padding: 40px 0;
+		}
+
+		section.area.content {
+			background-position: 50% 50%;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+		}
+
+			section.area.content h1 {
+				color: rgba(255, 255, 255, 0.9);
+				font-size: 48px;
+				line-height: 600px;
+				font-weight: 700;
+				text-align: center;
+				text-transform: uppercase;
+				text-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+			}
+
+		section.area.content-1 {
+			background-image: url('../../Images/about_background1.jpeg');
+		}
+
+		section.area.content-2 {
+			height: 400px;
+			background-image: url('../../Images/about_background2.jpeg');
+		}
+
+
+
+
+		@@media all and (min-width: 600px) {
+			section.area h2 {
+				font-size: 42px;
+			}
+
+			section.area p {
+				font-size: 20px;
+			}
+
+			section.area.content h1 {
+				font-size: 96px;
+			}
+		}
+
+		@@media all and (min-width: 960px) {
+			section.area.content h1 {
+				font-size: 160px;
+			}
+		}
+
+		body {
+			margin-top: 0;
+		}
+
+
+		.footer {
+			background: white;
+			text-align: center;
+			text-transform: uppercase;
+			color: black;
+			font-size: 24px;
+			font-weight: bold;
+		}
+	</style>
+
+</body>
+</html>
+
+
