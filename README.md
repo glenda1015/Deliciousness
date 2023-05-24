@@ -10,7 +10,11 @@ Functionalities:
 3. browse recipes
 4. view account information
 5. favorite a recipe
+
 ![deliciousness](https://github.com/glenda1015/Deliciousness/assets/85639833/ce8bdbad-c6ca-45b1-932d-d2ca603f8077)
+
 ![deliciousness-2](https://github.com/glenda1015/Deliciousness/assets/85639833/9361278a-4b8d-4722-a5ae-e3799ab0f677)
+
 ![deliciousness-3](https://github.com/glenda1015/Deliciousness/assets/85639833/94cd3ec6-ec62-4c25-a3ed-dbad1dde66e3)
+
 ![deliciousness-4](https://github.com/glenda1015/Deliciousness/assets/85639833/d4c6bb6c-0c6e-4aec-9bcb-b7934e5562d3)
